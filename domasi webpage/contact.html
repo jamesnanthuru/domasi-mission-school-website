@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Contact Domasi Mission Secondary School – find our address, phone, email, location map, and send us a message." />
+    <meta name="author" content="James Nanthuru">
+    <link rel="stylesheet" href="styles/styles.css">
+    <title>Contact Us | Domasi Mission Secondary School</title>
+</head>
+
+<body>
+      <header>
+        <div class="container header-flex">
+            <div class="logo">
+                <img src="images/logo.jpg" alt="Domasi Mission Secondary School Logo" />
+                <span class="school-name">D.M.S.S</span>
+            </div>
+            <nav>
+                <ul class="navigation">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="results.html">Check Results</a></li>
+                    <li><a href="university.html">University Selections</a></li>
+                    <li><a href="contact.html" class="active">Contact Us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ===== MAIN CONTENT ===== -->
+    <main>
+        <!-- 1. COMPANY INFO / ADDRESS -->
+        <section class="company-info">
+            <div class="container">
+                <h1>Contact Us</h1>
+                <address>
+                    <strong>Domasi Mission Secondary School</strong><br />
+                    P.O. Box 11, Domasi, Zomba, Malawi<br />
+                    <img src="images/location.png" alt="Location" class="contact-icon" /> Located 4 km from Songani Market, along M8 road<br />
+                    <img src="images/call.png" alt="phonecall" class="contact-icon" /><a href="tel:+265999000111">+265 999 000 111</a><br />
+                    <img src="images/email.png" alt="email" class="contact-icon" /><a href="mailto:info@domasissionschool.mw">info@domasimission.mw</a>
+                </address>
+            </div>
+        </section>
+
+        <!-- 2. TWO-COLUMN: MAP + FORM -->
+        <div class="container contact-two-column">
+            <!-- Map Column -->
+            <div class="contact-map">
+                <h2>Find Us Here</h2>
+                <!-- 
+                    IMPORTANT: Replace the src below with the embed code from your Google Maps link:
+                    1. Go to https://maps.app.goo.gl/prfMzQaADY7DzjUd8
+                    2. Click "Share" → "Embed a map"
+                    3. Copy the iframe src and paste it here.
+                -->
+               <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3848.428284769711!2d35.359223475119926!3d-15.298942785274432!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x18d91a3921bf6131%3A0x22ef3024658c64fc!2sDomasi%20Mission%20%5BPrivate%5D%20Secondary%20School!5e0!3m2!1sen!2smw!4v1782386093013!5m2!1sen!2smw"
+                    allowfullscreen=""
+                    loading="lazy"
+                    referrerpolicy="strict-origin-when-cross-origin">
+                </iframe>
+            </div>
+
+            <!-- Form Column -->
+            <div class="contact-form-container">
+                <h2>Send Us a Message</h2>
+                <form action="#" method="post" class="contact-form">
+                    <label for="name">Your Full Name:</label>
+                    <input type="text" id="name" name="name" placeholder="e.g., John Banda" required />
+
+                    <label for="email">Email Address:</label>
+                    <input type="email" id="email" name="email" placeholder="you@example.com" required />
+
+                    <fieldset>
+                        <legend>Purpose of your message:</legend>
+                        <label>
+                            <input type="radio" name="purpose" value="General Inquiry" required />
+                            General Inquiry
+                        </label>
+                        <label>
+                            <input type="radio" name="purpose" value="Admission Question" />
+                            Admission Question
+                        </label>
+                        <label>
+                            <input type="radio" name="purpose" value="Result Check Issue" />
+                            Result Check Issue
+                        </label>
+                        <label>
+                            <input type="radio" name="purpose" value="Tuition issue" />
+                            Tuition Payment Issue
+                        </label>
+                    </fieldset>
+
+                    <label for="message">Your Message:</label>
+                    <textarea id="message" name="message" rows="5" placeholder="Write your message here..." required></textarea>
+
+                    <label class="checkbox-label">
+                        <input type="checkbox" name="newsletter" value="subscribe" />
+                        Please subscribe me to the monthly school newsletter
+                    </label>
+
+                    <button type="submit" class="btn btn-primary submit-btn">Send Message</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- 3. MEET OUR TEAM -->
+        <section class="team-section">
+            <div class="container">
+                <h2>Meet Our Administration</h2>
+                <div class="staff">
+                    
+                    <figure>
+                        <img src="images/mathew.jpg" alt="Mr. Milanzi - Headmaster" />
+                        <figcaption><strong>Mr. Milanzi</strong><br />Headmaster</figcaption>
+                    </figure>
+                    <figure>
+                        <img src="images/avatar-placeholder.png" alt="Mr. Kasote - Deputy Head" />
+                        <figcaption><strong>Mr. Kasote</strong><br />Deputy Head</figcaption>
+                    </figure>
+                    <figure>
+                        <img src="images/avatar-placeholder.png" alt="Mr. Chiposi - HOD-Sciences" />
+                        <figcaption><strong>Mr. Chiposi</strong><br />Head of Department - Sciences</figcaption>
+                    </figure>
+                    <figure>
+                        <img src="images/avatar-placeholder.png" alt="Mr. Chilundu - HOD-Humanities" />
+                        <figcaption><strong>Mr. Chilundu </strong><br />Head of Department - Humanities</figcaption>
+                    </figure>
+                    <figure>
+                        <img src="images/avatar-placeholder.png" alt="Mr. Hara" />
+                        <figcaption><strong>Mr. Hara</strong><br />Head of Department - Languages</figcaption>
+                    </figure>
+                </div>
+            </div>
+        </section>
+    </main>
+
+   <!-- ===== FOOTER ===== -->
+<footer>
+    <div class="container footer-grid">
+        <div class="footer-col">
+            <h4>Domasi Mission SS</h4>
+            <p>P.O. Box 11, Domasi, Zomba, Malawi</p>
+            <p><img src="images/location.png" alt="Location" class="footer-icon" /> 4 km from Songani Market, along M8 road</p>
+            <p><img src="images/call.png" alt="Phone" class="footer-icon" /> +265 999 000 111</p>
+            <p><img src="images/email.png" alt="Email" class="footer-icon" /> info@domasissionschool.mw</p>
+            <p><strong>FDH Bank Account:</strong> 1040000494157</p>
+        </div>
+        <div class="footer-col">
+            <h4>Quick Links</h4>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="results.html">Check Results</a></li>
+                <li><a href="university.html">University Selections</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Follow Us</h4>
+            <div class="social-icons">
+                <a href="https://facebook.com" target="_blank"><img src="images/facebook.png" alt="Facebook" /></a>
+                <a href="https://web.whatsapp.com" target="_blank"><img src="images/whatsapp.png" alt="WhatsApp" /></a>
+                <a href="https://x.com" target="_blank"><img src="images/x-bw.png" alt="X (Twitter)" /></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== NEW COPYRIGHT SECTION ===== -->
+    <hr class="footer-divider" />
+
+    <div class="container footer-bottom">
+        <p class="footer-copy">
+            &copy; 2026 Domasi Mission Secondary School &bull; Learning for Living!
+        </p>
+        <p class="footer-designed">
+            Designed by <strong>Nancianan Consultancy</strong>
+        </p>
+    </div>
+</footer>
