@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Check your results at Domasi Mission Secondary School. Enter your Student ID and PIN to view your report." />
+    <meta name="author" content="James Nanthuru" />
+    <link rel="stylesheet" href="styles/styles.css" />
+    <title>Check Results | Domasi Mission Secondary School</title>
+</head>
+<body>
+    <!-- ===== HEADER ===== -->
+    <header>
+        <div class="container header-flex">
+            <div class="logo">
+                <img src="images/logo.jpg" alt="Domasi Mission Secondary School Logo" />
+                <span class="school-name">D.M.S.S</span>
+            </div>
+            <nav>
+                <ul class="navigation">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="results.html" class="active">Check Results</a></li>
+                    <li><a href="university.html">University Selections</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ===== MAIN CONTENT ===== -->
+    <main>
+        <!-- Results Hero Banner -->
+        <section class="results-hero">
+            <div class="container">
+                <h1>Check Your Results</h1>
+                <p>Enter your Student ID and PIN to view your school report</p>
+            </div>
+        </section>
+
+        <!-- Search Section -->
+        <section class="result-search-section">
+            <div class="container">
+                <div class="search-box">
+                    <label for="studentId">Student ID</label>
+                    <div class="search-input-group">
+                        <input 
+                            type="text" 
+                            id="studentId" 
+                            placeholder="e.g., D25F3118" 
+                            autofocus
+                        />
+                    </div>
+
+                    <label for="pin" style="margin-top: 15px;">PIN (Personal Identification Number)</label>
+                    <div class="search-input-group">
+                        <input 
+                            type="password" 
+                            id="pin" 
+                            placeholder="Enter your 4‑digit PIN"
+                        />
+                        <button id="searchBtn" onclick="checkResult()">View Results</button>
+                    </div>
+                    <p class="search-hint">Your PIN is your birth year. If the right one is not working, contact the school office.</p>
+                </div>
+
+                <!-- Result Display Area -->
+                <div id="resultDisplay">
+                    <!-- Results will appear here -->
+                </div>
+
+                <!-- Loading Spinner (hidden by default) -->
+                <div id="loadingSpinner" class="spinner" style="display: none;">
+                    <div class="spinner-circle"></div>
+                    <p>Checking credentials...</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Help Section -->
+<section class="help-section">
+    <div class="container">
+        <h2>Need Help?</h2>
+        <div class="help-grid">
+            <div class="help-item">
+                <img src="images/questionmark.png" alt="Question Mark" class="help-icon-img" />
+                <h3>Don't know your Student ID or PIN?</h3>
+                <p>Contact the school administration or check your previous report slip.</p>
+            </div>
+            <div class="help-item">
+                <img src="images/phonecall.png" alt="Phone Call" class="help-icon-img" />
+                <h3>Can't find your results?</h3>
+                <p>Call the school office at <strong>+265 999 000 111</strong> or email <strong>info@domasissionschool.mw</strong></p>
+            </div>
+            <div class="help-item">
+                <img src="images/printer.png" alt="Printer" class="help-icon-img" />
+                <h3>Need a printed copy?</h3>
+                <p>You can download or print your results directly from the PDF viewer.</p>
+            </div>
+        </div>
+    </div>
+</section>
+    </main>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+    <div class="container footer-grid">
+        <div class="footer-col">
+            <h4>Domasi Mission SS</h4>
+            <p>P.O. Box 11, Domasi, Zomba, Malawi</p>
+            <p><img src="images/location.png" alt="Location" class="footer-icon" /> 4 km from Songani Market, along M8 road</p>
+            <p><img src="images/call.png" alt="Phone" class="footer-icon" /> +265 999 000 111</p>
+            <p><img src="images/email.png" alt="Email" class="footer-icon" /> info@domasissionschool.mw</p>
+            <p><strong>FDH Bank Account:</strong> 1040000494157</p>
+        </div>
+        <div class="footer-col">
+            <h4>Quick Links</h4>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="results.html">Check Results</a></li>
+                <li><a href="university.html">University Selections</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Follow Us</h4>
+            <div class="social-icons">
+                <a href="https://facebook.com" target="_blank"><img src="images/facebook.png" alt="Facebook" /></a>
+                <a href="https://web.whatsapp.com" target="_blank"><img src="images/whatsapp.png" alt="WhatsApp" /></a>
+                <a href="https://x.com" target="_blank"><img src="images/x-bw.png" alt="X (Twitter)" /></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== NEW COPYRIGHT SECTION ===== -->
+    <hr class="footer-divider" />
+
+    <div class="container footer-bottom">
+        <p class="footer-copy">
+            &copy; 2026 Domasi Mission Secondary School &bull; Learning for Living!
+        </p>
+        <p class="footer-designed">
+            Designed by <strong>Nancianan Consultancy</strong>
+        </p>
+    </div>
+</footer>
+
+    <!-- ===== JAVASCRIPT ===== -->
+    <script>
+        // Enable Enter key to trigger search on either input
+        document.getElementById('studentId').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                document.getElementById('pin').focus();
+            }
+        });
+        document.getElementById('pin').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                checkResult();
+            }
+        });
+
+        // Rate limiting: track failed attempts per session
+        let failedAttempts = 0;
+        const MAX_ATTEMPTS = 5;
+        let lockoutTime = 0;
+
+        function checkResult() {
+            const studentId = document.getElementById('studentId').value.trim().toUpperCase();
+            const pin = document.getElementById('pin').value.trim();
+            const resultDisplay = document.getElementById('resultDisplay');
+            const loadingSpinner = document.getElementById('loadingSpinner');
+
+            // Check if currently locked out
+            if (Date.now() < lockoutTime) {
+                const remaining = Math.ceil((lockoutTime - Date.now()) / 1000);
+                resultDisplay.innerHTML = `
+                    <div class="error-message">
+                        <span class="error-icon">⛔</span>
+                        <p><strong>Too many failed attempts.</strong></p>
+                        <p>Please wait ${remaining} seconds before trying again.</p>
+                    </div>
+                `;
+                return;
+            }
+
+            // Validate inputs
+            if (!studentId) {
+                resultDisplay.innerHTML = `
+                    <div class="error-message">
+                        <span class="error-icon">⚠️</span>
+                        <p>Please enter your Student ID.</p>
+                    </div>
+                `;
+                return;
+            }
+            if (!pin) {
+                resultDisplay.innerHTML = `
+                    <div class="error-message">
+                        <span class="error-icon">⚠️</span>
+                        <p>Please enter your PIN.</p>
+                    </div>
+                `;
+                return;
+            }
+
+            // Show loading spinner
+            loadingSpinner.style.display = 'block';
+            resultDisplay.innerHTML = '';
+
+            // Fetch the PIN file
+            fetch('data/pins.json')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Could not load PIN data. Please contact school administration.');
+                    }
+                    return response.json();
+                })
+                .then(pins => {
+                    loadingSpinner.style.display = 'none';
+
+                    // Check if the student ID exists in the PIN list
+                    if (pins.hasOwnProperty(studentId)) {
+                        const correctPin = pins[studentId];
+                        if (pin === correctPin) {
+                            // PIN correct – open the PDF
+                            const pdfUrl = `results/${studentId}.pdf`;
+                            // Check if PDF exists before opening
+                            fetch(pdfUrl, { method: 'HEAD' })
+                                .then(res => {
+                                    if (res.ok) {
+                                        window.open(pdfUrl, '_blank');
+                                        resultDisplay.innerHTML = `
+                                            <div class="success-message">
+                                                <span class="success-icon">✅</span>
+                                                <p>Access granted! Your results are opening in a new tab.</p>
+                                                <p class="small-text">If the PDF doesn't load, <a href="${pdfUrl}" target="_blank">click here</a> to open directly.</p>
+                                            </div>
+                                        `;
+                                        // Reset failed attempts on success
+                                        failedAttempts = 0;
+                                    } else {
+                                        // PDF not found (even though PIN is correct)
+                                        resultDisplay.innerHTML = `
+                                            <div class="error-message">
+                                                <span class="error-icon">📄</span>
+                                                <p><strong>Results file not found for ${studentId}.</strong></p>
+                                                <p>Please contact the school office to report this issue.</p>
+                                            </div>
+                                        `;
+                                    }
+                                })
+                                .catch(() => {
+                                    resultDisplay.innerHTML = `
+                                        <div class="error-message">
+                                            <span class="error-icon">📄</span>
+                                            <p><strong>Could not access the results file.</strong></p>
+                                            <p>Please contact the school office.</p>
+                                        </div>
+                                    `;
+                                });
+                        } else {
+                            // Incorrect PIN
+                            failedAttempts++;
+                            if (failedAttempts >= MAX_ATTEMPTS) {
+                                // Lock out for 60 seconds
+                                lockoutTime = Date.now() + 60000; // 1 minute lockout
+                                resultDisplay.innerHTML = `
+                                    <div class="error-message">
+                                        <span class="error-icon">⛔</span>
+                                        <p><strong>Too many failed attempts.</strong></p>
+                                        <p>You have been temporarily locked out for 60 seconds.</p>
+                                    </div>
+                                `;
+                            } else {
+                                resultDisplay.innerHTML = `
+                                    <div class="error-message">
+                                        <span class="error-icon">🔒</span>
+                                        <p><strong>Incorrect PIN.</strong></p>
+                                        <p>Please check your PIN and try again.</p>
+                                        <p class="small-text">Attempts remaining: ${MAX_ATTEMPTS - failedAttempts}</p>
+                                    </div>
+                                `;
+                            }
+                        }
+                    } else {
+                        // Student ID not found in PIN list
+                        resultDisplay.innerHTML = `
+                            <div class="error-message">
+                                <span class="error-icon">🔍</span>
+                                <p><strong>Student ID not found.</strong></p>
+                                <p>Please check your Student ID and try again.</p>
+                                <p class="small-text">Format: D25F3118 (e.g., ensure that the letters are in upperecase, and there are no spaces between characters)</p>
+                            </div>
+                        `;
+                    }
+                })
+                .catch(error => {
+                    loadingSpinner.style.display = 'none';
+                    resultDisplay.innerHTML = `
+                        <div class="error-message">
+                            <span class="error-icon">⚠️</span>
+                            <p><strong>System Error</strong></p>
+                            <p>${error.message}</p>
+                        </div>
+                    `;
+                });
+        }
+    </script>
+</body>
+</html>
