@@ -5,6 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Domasi Mission Secondary School – Excellence in Education, Faith, and Service. Top 10 MSCE performance in Malawi." />
     <meta name="author" content="James Nanthuru" />
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/favicon.png" />
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    
     <link rel="stylesheet" href="styles/styles.css" />
     <title>Home | Domasi Mission Secondary School</title>
 </head>
@@ -31,29 +38,31 @@
     <!-- HERO BANNER -->
     <section class="hero">
         <div class="container hero-content">
-            <h1>Welcome to Domasi Mission Secondary School</h1>
-            <p>Excellence, Faith, and Service – nurturing future leaders since the 90s.</p>
-            <a href="contact.html" class="btn btn-primary">Contact Us</a>
+            <h1 class="hero-title">Welcome to Domasi Mission Secondary School</h1>
+            <p class="hero-subtitle">Excellence, Faith, and Service – nurturing future leaders since 1994.</p>
+            <a href="contact.html" class="btn btn-primary">
+                Contact Us <i class="fas fa-arrow-right"></i>
+            </a>
         </div>
     </section>
 
-    <!-- QUICK STATS -->
-    <section class="stats">
+    <!-- QUICK STATS (Animated) -->
+    <section class="stats" id="stats-section">
         <div class="container stats-grid">
-            <div class="stat-item">
-                <span class="stat-number">350+</span>
+            <div class="stat-item" data-count="350">
+                <span class="stat-number" id="stat1">0</span>
                 <span class="stat-label">Students</span>
             </div>
-            <div class="stat-item">
-                <span class="stat-number">25+</span>
+            <div class="stat-item" data-count="25">
+                <span class="stat-number" id="stat2">0</span>
                 <span class="stat-label">Qualified Teachers</span>
             </div>
-            <div class="stat-item">
-                <span class="stat-number">100%</span>
+            <div class="stat-item" data-count="100">
+                <span class="stat-number" id="stat3">0</span>
                 <span class="stat-label">Pass Rate (JCE & MSCE)</span>
             </div>
-            <div class="stat-item">
-                <span class="stat-number">80%+</span>
+            <div class="stat-item" data-count="80">
+                <span class="stat-number" id="stat4">0</span>
                 <span class="stat-label">to Public Universities</span>
             </div>
         </div>
@@ -63,7 +72,7 @@
     <section class="about-teaser">
         <div class="container">
             <div class="about-grid">
-                <div class="about-text">
+                <div class="about-text fade-in">
                     <h2>About Our School</h2>
                     <p>
                         Domasi Mission Secondary School is a prominent institution in Zomba District, part of the Blantyre Synod Education Department. 
@@ -72,18 +81,20 @@
                     <p>
                         Our holistic education develops spiritual, physical, social, and intellectual capabilities, producing productive citizens for Malawi.
                     </p>
-                    <a href="about.html" class="btn btn-secondary">Read More</a>
+                    <a href="about.html" class="btn btn-secondary">
+                        Read More <i class="fas fa-arrow-right"></i>
+                    </a>
                 </div>
                 <div class="mission-vision">
-                    <div class="mv-box">
+                    <div class="mv-box fade-in">
                         <h3>Our Mission</h3>
                         <p>To provide accessible, equitable, relevant, and holistic education through qualified, motivated teachers and effective resource use, developing productive citizens.</p>
                     </div>
-                    <div class="mv-box">
+                    <div class="mv-box fade-in">
                         <h3>Our Vision</h3>
                         <p>To achieve single‑digit grades at MSCE while maintaining a 100% pass rate, ensuring efficient and holistic education for Malawi's transformation.</p>
                     </div>
-                    <div class="mv-box values">
+                    <div class="mv-box values fade-in">
                         <h3>Core Values</h3>
                         <p>Hardwork · Excellency · Transparency · Accountability · Integrity · Collaboration · Role Modelling</p>
                     </div>
@@ -92,32 +103,39 @@
         </div>
     </section>
 
-    <!-- LATEST NEWS / ANNOUNCEMENTS -->
+    <!-- LATEST NEWS / ANNOUNCEMENTS (CAROUSEL) -->
     <section class="news">
         <div class="container">
             <h2>Latest Announcements</h2>
-            <div class="news-grid">
-                <div class="news-card">
-                    <span class="news-date">June 2026</span>
-                    <h3>MSCE Exams Commence</h3>
-                    <p>MSCE examinations begin on <strong>29th June 2026</strong>. All candidates are urged to prepare diligently.</p>
+            <div class="news-carousel-container">
+                <div class="news-carousel" id="newsCarousel">
+                    <div class="news-slide">
+                        <span class="news-date">June 2026</span>
+                        <h3>MSCE Exams Commence</h3>
+                        <p>MSCE examinations begin on <strong>29th June 2026</strong>. All candidates are urged to prepare diligently.</p>
+                    </div>
+                    <div class="news-slide">
+                        <span class="news-date">July 2026</span>
+                        <h3>End of Year Exams (Forms 1 & 3)</h3>
+                        <p>Exams for Forms 1 and 3 will start on <strong>6th July 2026</strong>. Detailed timetables are available at the school.</p>
+                    </div>
+                    <div class="news-slide">
+                        <span class="news-date">July 2026</span>
+                        <h3>School Closing Date</h3>
+                        <p>The school will close for the academic year on <strong>24th July 2026</strong>. Safe travels to all learners.</p>
+                    </div>
+                    <div class="news-slide">
+                        <span class="news-date">Coming Soon</span>
+                        <h3>Entrance Exams</h3>
+                        <p>Dates for the new academic year entrance exams will be announced shortly. Keep checking this space.</p>
+                    </div>
                 </div>
-                <div class="news-card">
-                    <span class="news-date">July 2026</span>
-                    <h3>End of Year Exams (Forms 1 & 3)</h3>
-                    <p>Exams for Forms 1 and 3 will start on <strong>6th July 2026</strong>. Detailed timetables are available at the school.</p>
-                </div>
-                <div class="news-card">
-                    <span class="news-date">July 2026</span>
-                    <h3>School Closing Date</h3>
-                    <p>The school will close for the academic year on <strong>24th July 2026</strong>. Safe travels to all learners.</p>
-                </div>
-                <div class="news-card">
-                    <span class="news-date">Coming Soon</span>
-                    <h3>Entrance Exams</h3>
-                    <p>Dates for the new academic year entrance exams will be announced shortly. Keep checking this space.</p>
-                </div>
+                <!-- Carousel Controls -->
+                <button class="carousel-btn prev-btn" onclick="prevSlide()">&#10094;</button>
+                <button class="carousel-btn next-btn" onclick="nextSlide()">&#10095;</button>
             </div>
+            <!-- Dots/Indicators -->
+            <div class="carousel-dots" id="carouselDots"></div>
         </div>
     </section>
 
@@ -127,17 +145,17 @@
             <h2>Quick Actions</h2>
             <div class="links-grid">
                 <a href="results.html" class="link-card">
-                    <img src="images/results.png" alt="Phone" class="action-icon" />
+                    <img src="images/results.png" alt="Check Results" class="action-icon" />
                     <h3>Check Results</h3>
                     <p>View your exam results online</p>
                 </a>
                 <a href="university.html" class="link-card">
-                    <img src="images/university.png" alt="Phone" class="action-icon" />
+                    <img src="images/university.png" alt="University Selections" class="action-icon" />
                     <h3>University Selections</h3>
                     <p>See where our graduates are headed</p>
                 </a>
                 <a href="contact.html" class="link-card">
-                    <img src="images/call.png" alt="Phone" class="action-icon" />
+                    <img src="images/call.png" alt="Contact Us" class="action-icon" />
                     <h3>Contact Us</h3>
                     <p>Get in touch with the administration</p>
                 </a>
@@ -145,46 +163,55 @@
         </div>
     </section>
 
-<!-- ===== FOOTER ===== -->
-<footer>
-    <div class="container footer-grid">
-        <div class="footer-col">
-            <h4>Domasi Mission SS</h4>
-            <p>P.O. Box 11, Domasi, Zomba, Malawi</p>
-            <p><img src="images/location.png" alt="Location" class="footer-icon" /> 4 km from Songani Market, along M8 road</p>
-            <p><img src="images/call.png" alt="Phone" class="footer-icon" /> +265 999 000 111</p>
-            <p><img src="images/email.png" alt="Email" class="footer-icon" /> info@domasissionschool.mw</p>
-            <p><strong>FDH Bank Account:</strong> 1040000494157</p>
-        </div>
-        <div class="footer-col">
-            <h4>Quick Links</h4>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="results.html">Check Results</a></li>
-                <li><a href="university.html">University Selections</a></li>
-                <li><a href="contact.html">Contact Us</a></li>
-            </ul>
-        </div>
-        <div class="footer-col">
-            <h4>Follow Us</h4>
-            <div class="social-icons">
-                <a href="https://facebook.com" target="_blank"><img src="images/facebook.png" alt="Facebook" /></a>
-                <a href="https://web.whatsapp.com" target="_blank"><img src="images/whatsapp.png" alt="WhatsApp" /></a>
-                <a href="https://x.com" target="_blank"><img src="images/x-bw.png" alt="X (Twitter)" /></a>
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <div class="container footer-grid">
+            <div class="footer-col">
+                <h4>Domasi Mission SS</h4>
+                <p>P.O. Box 11, Domasi, Zomba, Malawi</p>
+                <p><img src="images/location.png" alt="Location" class="footer-icon" /> 4 km from Songani Market, along M8 road</p>
+                <p><img src="images/call.png" alt="Phone" class="footer-icon" /> +265 999 000 111</p>
+                <p><img src="images/email.png" alt="Email" class="footer-icon" /> info@domasissionschool.mw</p>
+                <p><strong>FDH Bank Account:</strong> 1040000494157</p>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="results.html">Check Results</a></li>
+                    <li><a href="university.html">University Selections</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Follow Us</h4>
+                <div class="social-icons">
+                    <a href="https://facebook.com" target="_blank"><img src="images/facebook.png" alt="Facebook" /></a>
+                    <a href="https://web.whatsapp.com" target="_blank"><img src="images/whatsapp.png" alt="WhatsApp" /></a>
+                    <a href="https://x.com" target="_blank"><img src="images/x-bw.png" alt="X (Twitter)" /></a>
+                </div>
             </div>
         </div>
-    </div>
 
-    <!-- ===== NEW COPYRIGHT SECTION ===== -->
-    <hr class="footer-divider" />
+        <hr class="footer-divider" />
 
-    <div class="container footer-bottom">
-        <p class="footer-copy">
-            &copy; 2026 Domasi Mission Secondary School &bull; Learning for Living!
-        </p>
-        <p class="footer-designed">
-            Designed by <a href="https://www.linkedin.com/in/james-nanthuru-34a777254/">James Nanthuru</a> of <strong>Nancienan Consultancy</strong>
-        </p>
-    </div>
-</footer>
+        <div class="container footer-bottom">
+            <p class="footer-copy">
+                &copy; 2026 Domasi Mission Secondary School &bull; Learning for Living!
+            </p>
+            <p class="footer-designed">
+                Designed by <a href="https://www.linkedin.com/in/james-nanthuru-34a777254/" target="_blank" class="footer-link">James Nanthuru</a> of <strong>Nancienan Consultancy</strong>
+            </p>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="back-to-top" onclick="scrollToTop()">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- ===== EXTERNAL JAVASCRIPT ===== -->
+    <script src="scripts/domasi.js"></script>
+</body>
+</html>

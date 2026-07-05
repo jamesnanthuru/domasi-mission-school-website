@@ -1379,6 +1379,19 @@ footer {
     margin-bottom: 15px;
 }
 
+.help-icon-img {
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto 15px;
+    transition: all 0.3s ease;
+}
+
+.help-item:hover .help-icon-img {
+    transform: scale(1.1);
+}
+
 .help-item h3 {
     color: #0a1a3a;
     font-size: 1.1rem;
@@ -1540,20 +1553,43 @@ footer {
     margin-right: auto;
 }
 
-.table-search input {
+.search-input-wrapper {
+    position: relative;
     flex: 1;
-    padding: 12px 18px;
+    min-width: 200px;
+}
+
+.search-input-icon {
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+.search-input-wrapper input {
+    width: 100%;
+    padding: 12px 18px 12px 44px;
     border: 2px solid #e2e8f0;
     border-radius: 12px;
     font-size: 1rem;
     transition: 0.3s;
-    min-width: 200px;
+    font-family: inherit;
+    background: #fff;
 }
 
-.table-search input:focus {
+.search-input-wrapper input:focus {
     outline: none;
     border-color: #2a9d8f;
     box-shadow: 0 0 0 4px rgba(42, 157, 143, 0.15);
+}
+
+.search-input-wrapper input::placeholder {
+    color: #94a3b8;
 }
 
 .table-search select {
@@ -1563,6 +1599,13 @@ footer {
     font-size: 1rem;
     background: #fff;
     cursor: pointer;
+    transition: 0.3s;
+}
+
+.table-search select:focus {
+    outline: none;
+    border-color: #2a9d8f;
+    box-shadow: 0 0 0 4px rgba(42, 157, 143, 0.15);
 }
 
 /* Table */
@@ -1649,7 +1692,6 @@ footer {
     font-size: 0.9rem;
 }
 
-/* Responsive */
 @media (max-width: 700px) {
     .uni-hero h1 {
         font-size: 2.2rem;
@@ -1692,83 +1734,426 @@ footer {
     }
 }
 
-/* ===== UNIVERSITY SELECTION - SEARCH ===== */
-.table-search {
-    display: flex;
-    gap: 15px;
-    margin-bottom: 25px;
-    flex-wrap: wrap;
-    max-width: 700px;
-    margin-left: auto;
-    margin-right: auto;
+/* ======================================== */
+/* ===== MODERN LOOK UPDATES ===== */
+/* ======================================== */
+
+/* Smooth scrolling for the whole page */
+html {
+    scroll-behavior: smooth;
 }
 
-/* Option 1: Absolute positioning inside input */
-.search-input-wrapper {
+/* ===== HERO IMPROVEMENTS ===== */
+.hero-title {
+    animation: fadeInUp 1s ease forwards;
+}
+
+.hero-subtitle {
+    animation: fadeInUp 1s ease 0.2s forwards;
+    opacity: 0;
+}
+
+.hero .btn {
+    animation: fadeInUp 1s ease 0.4s forwards;
+    opacity: 0;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Floating animation for hero elements */
+.hero-content {
     position: relative;
-    flex: 1;
-    min-width: 200px;
+    z-index: 2;
+    animation: float 6s ease-in-out infinite;
 }
 
-.search-input-icon {
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* ===== FADE-IN ON SCROLL ===== */
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ===== NEWS CAROUSEL ===== */
+.news-carousel-container {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: 16px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+}
+
+.news-carousel {
+    display: flex;
+    transition: transform 0.8s ease-in-out;
+    background: #fff;
+}
+
+.news-slide {
+    min-width: 100%;
+    padding: 40px 50px;
+    text-align: center;
+    background: #fff;
+}
+
+.news-slide .news-date {
+    display: inline-block;
+    background: #0a1a3a;
+    color: #fff;
+    padding: 4px 18px;
+    border-radius: 30px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    margin-bottom: 15px;
+}
+
+.news-slide h3 {
+    color: #0a1a3a;
+    font-size: 1.5rem;
+    margin-bottom: 12px;
+}
+
+.news-slide p {
+    color: #475569;
+    font-size: 1.05rem;
+    line-height: 1.7;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Carousel Controls */
+.carousel-btn {
     position: absolute;
-    left: 14px;
     top: 50%;
     transform: translateY(-50%);
-    width: 20px;
-    height: 20px;
-    object-fit: contain;
-    opacity: 0.6;
-    pointer-events: none;
-}
-
-.search-input-wrapper input {
-    width: 100%;
-    padding: 12px 18px 12px 44px;
-    border: 2px solid #e2e8f0;
-    border-radius: 12px;
-    font-size: 1rem;
-    transition: 0.3s;
-    font-family: inherit;
-    background: #fff;
-}
-
-.search-input-wrapper input:focus {
-    outline: none;
-    border-color: #2a9d8f;
-    box-shadow: 0 0 0 4px rgba(42, 157, 143, 0.15);
-}
-
-.search-input-wrapper input::placeholder {
-    color: #94a3b8;
-}
-
-.table-search select {
-    padding: 12px 18px;
-    border: 2px solid #e2e8f0;
-    border-radius: 12px;
-    font-size: 1rem;
-    background: #fff;
+    background: rgba(10, 26, 58, 0.8);
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 44px;
+    height: 44px;
+    font-size: 1.3rem;
     cursor: pointer;
-    transition: 0.3s;
+    transition: all 0.3s ease;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.table-search select:focus {
-    outline: none;
-    border-color: #2a9d8f;
-    box-shadow: 0 0 0 4px rgba(42, 157, 143, 0.15);
+.carousel-btn:hover {
+    background: #f4a261;
+    transform: translateY(-50%) scale(1.1);
 }
 
-/* Responsive */
+.prev-btn {
+    left: 10px;
+}
+
+.next-btn {
+    right: 10px;
+}
+
+/* Carousel Dots */
+.carousel-dots {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #e2e8f0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.dot.active {
+    background: #0a1a3a;
+    transform: scale(1.2);
+}
+
+.dot:hover {
+    background: #f4a261;
+}
+
+/* ===== BACK TO TOP BUTTON ===== */
+.back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background: #0a1a3a;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    font-size: 1.3rem;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 1000;
+}
+
+.back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.back-to-top:hover {
+    background: #f4a261;
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(244, 162, 97, 0.4);
+}
+
+.back-to-top i {
+    font-size: 1.3rem;
+}
+
+/* ===== FOOTER LINK (LinkedIn) ===== */
+.footer-link {
+    color: #94a3b8;
+    transition: all 0.3s ease;
+    text-decoration: underline;
+    text-decoration-color: transparent;
+}
+
+.footer-link:hover {
+    color: #f4a261;
+    text-decoration-color: #f4a261;
+}
+
+.footer-designed strong {
+    color: #f4a261;
+    font-weight: 600;
+}
+
+/* ===== BUTTON ARROW ICONS ===== */
+.btn i.fa-arrow-right {
+    margin-left: 8px;
+    transition: transform 0.3s ease;
+    display: inline-block;
+}
+
+.btn:hover i.fa-arrow-right {
+    transform: translateX(5px);
+}
+
+.btn-primary i.fa-arrow-right {
+    color: #0a1a3a;
+}
+
+.btn-secondary i.fa-arrow-right {
+    color: #0a1a3a;
+}
+
+.btn-secondary:hover i.fa-arrow-right {
+    color: #fff;
+}
+
+/* Make Font Awesome icons work with existing button styles */
+.btn .fas,
+.btn .far,
+.btn .fab {
+    vertical-align: middle;
+}
+
+/* ===== RESPONSIVE FOR MODERN UPDATES ===== */
 @media (max-width: 700px) {
-    .table-search {
-        flex-direction: column;
-        align-items: stretch;
+    .news-slide {
+        padding: 30px 25px;
     }
-    .search-input-wrapper {
-        width: 100%;
+    .news-slide h3 {
+        font-size: 1.2rem;
     }
-    .table-search select {
-        width: 100%;
+    .news-slide p {
+        font-size: 0.95rem;
     }
+    .carousel-btn {
+        width: 36px;
+        height: 36px;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .back-to-top {
+        bottom: 20px;
+        right: 20px;
+        width: 44px;
+        height: 44px;
+        font-size: 1.1rem;
+    }
+}
+
+/* ===== RESULTS PAGE - MODERN LOOK ===== */
+
+/* Results Hero Animation */
+.results-hero .hero-title {
+    animation: fadeInUp 1s ease forwards;
+}
+
+.results-hero .hero-subtitle {
+    animation: fadeInUp 1s ease 0.2s forwards;
+    opacity: 0;
+}
+
+.results-hero {
+    position: relative;
+}
+
+/* Search Box Fade In */
+.search-box.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.search-box.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Help Section Fade In */
+.help-item.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.help-item.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.help-item.fade-in:nth-child(1) { transition-delay: 0.1s; }
+.help-item.fade-in:nth-child(2) { transition-delay: 0.2s; }
+.help-item.fade-in:nth-child(3) { transition-delay: 0.3s; }
+
+/* Search Button with Arrow */
+.search-input-group button i.fa-arrow-right {
+    margin-left: 8px;
+    transition: transform 0.3s ease;
+    display: inline-block;
+}
+
+.search-input-group button:hover i.fa-arrow-right {
+    transform: translateX(5px);
+}
+
+/* Back to Top Button (if not already in CSS) */
+.back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background: #0a1a3a;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    font-size: 1.3rem;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 1000;
+}
+
+.back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.back-to-top:hover {
+    background: #f4a261;
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(244, 162, 97, 0.4);
+}
+
+.back-to-top i {
+    font-size: 1.3rem;
+}
+
+/* Footer Link (LinkedIn) */
+.footer-link {
+    color: #94a3b8;
+    transition: all 0.3s ease;
+    text-decoration: underline;
+    text-decoration-color: transparent;
+}
+
+.footer-link:hover {
+    color: #f4a261;
+    text-decoration-color: #f4a261;
+}
+
+.pin-hint {
+    font-size: 0.85rem;
+    color: #94a3b8;
+    margin-top: 5px;
+    text-align: left;
+}
+
+/* ======================================== */
+/* ===== PIN HINT LINK STYLING ===== */
+/* ======================================== */
+
+.pin-hint a {
+    color: #f4a261;  /* Gold color - matches your theme */
+    font-weight: 600;
+    text-decoration:none;
+    text-underline-offset: 2px;
+    transition: all 0.3s ease;
+}
+
+.pin-hint a:hover {
+    color: #e9c46a;  /* Lighter gold on hover */
+    text-decoration: none;
+    transform: scale(1.02);
+}
+
+/* ======================================== */
+/* ===== FOOTER LINK STYLING (James Nanthuru) ===== */
+/* ======================================== */
+
+.footer-link {
+    color: #f4a261 !important;  /* Gold color - visible against dark background */
+    font-weight: 600;
+    text-decoration:none;
+    text-underline-offset: 2px;
+    transition: all 0.3s ease;
+}
+
+.footer-link:hover {
+    color: #e9c46a !important;  /* Lighter gold on hover */
+    text-decoration: none;
+    text-shadow: 0 0 10px rgba(244, 162, 97, 0.3);
 }
