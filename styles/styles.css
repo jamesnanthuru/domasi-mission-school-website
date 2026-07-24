@@ -10,6 +10,7 @@ body {
     background-color: #ffffff;
     color: #1e293b;
     line-height: 1.6;
+    padding-top: 85px; /* Space for fixed header */
 }
 
 .container {
@@ -23,11 +24,32 @@ a {
     color: inherit;
 }
 
-/* ===== HEADER ===== */
+/* ===== STICKY HEADER ===== */
 header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
     background-color: #0a1a3a;
     padding: 15px 0;
     border-bottom: 4px solid #f4a261;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+}
+
+/* Shrink header on scroll */
+header.shrink {
+    padding: 8px 0;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.25);
+}
+
+header.shrink .logo img {
+    height: 42px;
+}
+
+header.shrink .school-name {
+    font-size: 1.2rem;
 }
 
 .header-flex {
@@ -43,9 +65,16 @@ header {
     gap: 12px;
 }
 
+.logo a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
 .logo img {
     height: 55px;
     width: auto;
+    transition: height 0.3s ease;
 }
 
 .school-name {
@@ -53,8 +82,10 @@ header {
     font-size: 1.4rem;
     font-weight: 700;
     letter-spacing: 0.5px;
+    transition: font-size 0.3s ease;
 }
 
+/* ===== NAVIGATION (Desktop) ===== */
 .navigation {
     list-style: none;
     display: flex;
@@ -73,6 +104,198 @@ header {
 .navigation li a.active {
     color: #f4a261;
     border-bottom-color: #f4a261;
+}
+
+/* ===== HAMBURGER MENU (Mobile) ===== */
+.hamburger {
+    display: none;
+    background: none;
+    border: none;
+    color: #ffffff;
+    font-size: 1.8rem;
+    cursor: pointer;
+    padding: 5px 10px;
+    transition: all 0.3s ease;
+    z-index: 1001;
+}
+
+.hamburger:hover {
+    color: #f4a261;
+    transform: scale(1.05);
+}
+
+.close-menu {
+    display: none;
+    background: none;
+    border: none;
+    color: #ffffff;
+    font-size: 2rem;
+    cursor: pointer;
+    padding: 10px 20px;
+    transition: all 0.3s ease;
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    z-index: 1002;
+}
+
+.close-menu:hover {
+    color: #f4a261;
+    transform: rotate(90deg);
+}
+
+/* ===== MOBILE NAVIGATION ===== */
+@media (max-width: 768px) {
+    body {
+        padding-top: 70px;
+    }
+
+    .hamburger {
+        display: block;
+    }
+
+    .close-menu {
+        display: block;
+    }
+
+    .nav-menu {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 80%;
+        max-width: 320px;
+        height: 100vh;
+        background: #0a1a3a;
+        padding: 60px 30px 30px;
+        transition: right 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        z-index: 1000;
+        overflow-y: auto;
+        box-shadow: -10px 0 40px rgba(0, 0, 0, 0.3);
+    }
+
+    .nav-menu.open {
+        right: 0;
+    }
+
+    /* Overlay */
+    .nav-menu::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.4s ease;
+        z-index: -1;
+    }
+
+    .nav-menu.open::before {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .navigation {
+        flex-direction: column;
+        gap: 20px;
+        padding-top: 30px;
+        list-style: none;
+        align-items: center;
+    }
+
+    .navigation li {
+        width: 100%;
+        text-align: center;
+        opacity: 0;
+        transform: translateX(30px);
+        transition: all 0.3s ease;
+        transition-delay: 0s;
+    }
+
+    /* Staggered animation */
+    .nav-menu.open .navigation li:nth-child(1) { transition-delay: 0.1s; }
+    .nav-menu.open .navigation li:nth-child(2) { transition-delay: 0.15s; }
+    .nav-menu.open .navigation li:nth-child(3) { transition-delay: 0.2s; }
+    .nav-menu.open .navigation li:nth-child(4) { transition-delay: 0.25s; }
+    .nav-menu.open .navigation li:nth-child(5) { transition-delay: 0.3s; }
+
+    .nav-menu.open .navigation li {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    .navigation li a {
+        display: block;
+        padding: 12px 20px;
+        font-size: 1.2rem;
+        color: #e2e8f0;
+        border-bottom: 2px solid transparent;
+        transition: all 0.3s ease;
+        border-radius: 8px;
+    }
+
+    .navigation li a:hover,
+    .navigation li a.active {
+        color: #f4a261;
+        background: rgba(244, 162, 97, 0.1);
+        border-bottom-color: #f4a261;
+    }
+
+    /* Body scroll lock */
+    body.menu-open {
+        overflow: hidden;
+    }
+
+    header {
+        padding: 10px 0;
+    }
+
+    .logo img {
+        height: 40px;
+    }
+
+    .school-name {
+        font-size: 1rem;
+    }
+
+    /* Adjust shrink on mobile */
+    header.shrink .logo img {
+        height: 32px;
+    }
+
+    header.shrink .school-name {
+        font-size: 0.9rem;
+    }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+    body {
+        padding-top: 60px;
+    }
+
+    .nav-menu {
+        width: 85%;
+        max-width: 280px;
+        padding: 50px 20px 20px;
+    }
+
+    .navigation li a {
+        font-size: 1rem;
+        padding: 10px 15px;
+    }
+
+    .close-menu {
+        font-size: 1.6rem;
+        top: 10px;
+        right: 15px;
+    }
+
+    .hamburger {
+        font-size: 1.5rem;
+    }
 }
 
 /* ===== HERO ===== */
@@ -515,15 +738,6 @@ footer {
 }
 
 @media (max-width: 700px) {
-    .header-flex {
-        flex-direction: column;
-        gap: 15px;
-    }
-    .navigation {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 12px 20px;
-    }
     .stats-grid {
         grid-template-columns: 1fr 1fr;
     }
@@ -673,22 +887,6 @@ footer {
     transform: scale(1.1);
 }
 
-.checkbox-label {
-    display: flex !important;
-    align-items: center;
-    gap: 10px;
-    font-weight: 400 !important;
-    margin-top: 18px;
-    cursor: pointer;
-}
-
-.checkbox-label input[type="checkbox"] {
-    width: 20px;
-    height: 20px;
-    accent-color: #2a9d8f;
-    cursor: pointer;
-}
-
 .submit-btn {
     margin-top: 25px;
     width: 100%;
@@ -773,53 +971,176 @@ footer {
     margin-bottom: 2px;
 }
 
-@media (max-width: 900px) {
-    .contact-two-column {
-        grid-template-columns: 1fr;
-        gap: 40px;
-    }
-    .contact-map iframe {
-        height: 300px;
-    }
-    .staff {
-        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    }
-    .staff figure img {
-        width: 110px;
-        height: 110px;
-    }
+/* ======================================== */
+/* ===== STAFF - COMPACT (One Line) ===== */
+/* ======================================== */
+
+.staff-compact {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 15px;
 }
 
-@media (max-width: 600px) {
-    .company-info h1 {
-        font-size: 2.2rem;
-    }
-    .company-info address {
-        font-size: 1rem;
-    }
-    .contact-form fieldset label {
-        display: block;
-        margin-right: 0;
-    }
-    .staff {
-        grid-template-columns: 1fr 1fr;
-        gap: 20px;
-    }
-    .staff figure {
-        padding: 15px 10px;
-    }
-    .staff figure img {
-        width: 90px;
-        height: 90px;
-    }
+.staff-compact figure {
+    background: #fff;
+    border-radius: 20px;
+    padding: 15px 10px;
+    margin: 0;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+    transition: 0.3s;
+    border-bottom: 4px solid transparent;
 }
 
-@media (max-width: 420px) {
-    .staff {
-        grid-template-columns: 1fr;
-        max-width: 250px;
-        margin: 0 auto;
-    }
+.staff-compact figure:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    border-bottom-color: #f4a261;
+}
+
+.staff-compact figure img {
+    width: 90px;
+    height: 90px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid #e2e8f0;
+    margin-bottom: 10px;
+    transition: 0.3s;
+}
+
+.staff-compact figure:hover img {
+    border-color: #2a9d8f;
+}
+
+.staff-compact figcaption {
+    font-size: 0.8rem;
+    line-height: 1.4;
+    color: #1e293b;
+}
+
+.staff-compact figcaption strong {
+    display: block;
+    font-size: 0.85rem;
+    color: #0a1a3a;
+    margin-bottom: 2px;
+}
+
+/* ======================================== */
+/* ===== STAFF DEPARTMENTS SECTION ===== */
+/* ======================================== */
+
+.staff-departments {
+    padding: 60px 0;
+    background: #f8f9fa;
+}
+
+.staff-departments h2 {
+    text-align: center;
+    font-size: 2.2rem;
+    color: #0a1a3a;
+    margin-bottom: 40px;
+}
+
+.departments-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    align-items: start; /* Allows cards to have different heights */
+}
+
+.dept-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 30px 25px 35px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    border-bottom: 4px solid transparent;
+    position: relative;
+    overflow: hidden;
+    height: auto; /* Height based on content */
+}
+
+.dept-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #0a1a3a, #f4a261);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.dept-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+    border-bottom-color: #f4a261;
+}
+
+.dept-card:hover::before {
+    opacity: 1;
+}
+
+.dept-icon {
+    font-size: 2.5rem;
+    color: #0a1a3a;
+    margin-bottom: 12px;
+    display: block;
+    text-align: center;
+}
+
+.dept-card h3 {
+    color: #0a1a3a;
+    font-size: 1.3rem;
+    text-align: center;
+    margin-bottom: 18px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid #f1f5f9;
+    position: relative;
+}
+
+.dept-card h3::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 2px;
+    background: #f4a261;
+}
+
+.staff-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.staff-list li {
+    padding: 8px 12px;
+    margin-bottom: 4px;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    color: #1e293b;
+    transition: background 0.3s ease;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.staff-list li:hover {
+    background: #f8f9fa;
+}
+
+.staff-list li strong {
+    color: #0a1a3a;
+}
+
+.dept-role {
+    color: #f4a261;
+    font-size: 0.8rem;
+    font-weight: 600;
 }
 
 /* ======================================== */
@@ -2067,54 +2388,6 @@ html {
     transform: translateX(5px);
 }
 
-/* Back to Top Button (if not already in CSS) */
-.back-to-top {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    width: 50px;
-    height: 50px;
-    background: #0a1a3a;
-    color: #fff;
-    border: none;
-    border-radius: 50%;
-    font-size: 1.3rem;
-    cursor: pointer;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    transition: all 0.3s ease;
-    opacity: 0;
-    visibility: hidden;
-    z-index: 1000;
-}
-
-.back-to-top.visible {
-    opacity: 1;
-    visibility: visible;
-}
-
-.back-to-top:hover {
-    background: #f4a261;
-    transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(244, 162, 97, 0.4);
-}
-
-.back-to-top i {
-    font-size: 1.3rem;
-}
-
-/* Footer Link (LinkedIn) */
-.footer-link {
-    color: #94a3b8;
-    transition: all 0.3s ease;
-    text-decoration: underline;
-    text-decoration-color: transparent;
-}
-
-.footer-link:hover {
-    color: #f4a261;
-    text-decoration-color: #f4a261;
-}
-
 .pin-hint {
     font-size: 0.85rem;
     color: #94a3b8;
@@ -2127,15 +2400,15 @@ html {
 /* ======================================== */
 
 .pin-hint a {
-    color: #f4a261;  /* Gold color - matches your theme */
+    color: #f4a261;
     font-weight: 600;
-    text-decoration:none;
+    text-decoration: none;
     text-underline-offset: 2px;
     transition: all 0.3s ease;
 }
 
 .pin-hint a:hover {
-    color: #e9c46a;  /* Lighter gold on hover */
+    color: #e9c46a;
     text-decoration: none;
     transform: scale(1.02);
 }
@@ -2145,15 +2418,76 @@ html {
 /* ======================================== */
 
 .footer-link {
-    color: #f4a261 !important;  /* Gold color - visible against dark background */
+    color: #f4a261 !important;
     font-weight: 600;
-    text-decoration:none;
+    text-decoration: none;
     text-underline-offset: 2px;
     transition: all 0.3s ease;
 }
 
 .footer-link:hover {
-    color: #e9c46a !important;  /* Lighter gold on hover */
+    color: #e9c46a !important;
     text-decoration: none;
     text-shadow: 0 0 10px rgba(244, 162, 97, 0.3);
+}
+
+/* ======================================== */
+/* ===== RESPONSIVE FOR STAFF COMPACT & DEPARTMENTS ===== */
+/* ======================================== */
+
+@media (max-width: 1100px) {
+    .staff-compact {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .staff-compact {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .staff-compact figure img {
+        width: 80px;
+        height: 80px;
+    }
+}
+
+@media (max-width: 700px) {
+    .departments-grid {
+        grid-template-columns: 1fr;
+    }
+    .staff-departments h2 {
+        font-size: 1.8rem;
+    }
+    .dept-card {
+        padding: 20px 18px 25px;
+    }
+    .staff-list li {
+        font-size: 0.9rem;
+        padding: 6px 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .staff-compact {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+    .staff-compact figure {
+        padding: 10px 5px;
+    }
+    .staff-compact figure img {
+        width: 65px;
+        height: 65px;
+    }
+    .staff-compact figcaption {
+        font-size: 0.7rem;
+    }
+    .staff-compact figcaption strong {
+        font-size: 0.75rem;
+    }
+    .staff-list li {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 2px;
+    }
 }

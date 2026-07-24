@@ -20,10 +20,20 @@
     <header>
         <div class="container header-flex">
             <div class="logo">
-                <img src="images/logo.png" alt="Domasi Mission Secondary School Logo" />
-                <span class="school-name">D.M.S.S</span>
+                <a href="index.html">
+                    <img src="images/logo.png" alt="Domasi Mission Secondary School Logo" />
+                    <span class="school-name">D.M.S.S</span>
+                </a>
             </div>
-            <nav>
+            <!-- Hamburger Menu Button -->
+            <button class="hamburger" id="hamburgerBtn" aria-label="Toggle navigation menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            <!-- Navigation -->
+            <nav class="nav-menu" id="navMenu">
+                <button class="close-menu" id="closeMenuBtn" aria-label="Close navigation menu">
+                    <i class="fas fa-times"></i>
+                </button>
                 <ul class="navigation">
                     <li><a href="index.html" class="active">Home</a></li>
                     <li><a href="about.html">About Us</a></li>
@@ -211,7 +221,7 @@
         <i class="fas fa-chevron-up"></i>
     </button>
 
-    <!-- ===== EXTERNAL JAVASCRIPT ===== -->
-    <script src="scripts/domasi.js"></script>
+    <!-- ===== EXTERNAL JAVASCRIPT WITH DEFER ===== -->
+    <script src="scripts/domasi.js" defer></script>
 </body>
 </html>

@@ -21,10 +21,20 @@
     <header>
         <div class="container header-flex">
             <div class="logo">
-                <img src="images/logo.png" alt="Domasi Mission Secondary School Logo" />
-                <span class="school-name">D.M.S.S</span>
+                <a href="index.html">
+                    <img src="images/logo.png" alt="Domasi Mission Secondary School Logo" />
+                    <span class="school-name">D.M.S.S</span>
+                </a>
             </div>
-            <nav>
+            <!-- Hamburger Menu Button -->
+            <button class="hamburger" id="hamburgerBtn" aria-label="Toggle navigation menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            <!-- Navigation -->
+            <nav class="nav-menu" id="navMenu">
+                <button class="close-menu" id="closeMenuBtn" aria-label="Close navigation menu">
+                    <i class="fas fa-times"></i>
+                </button>
                 <ul class="navigation">
                     <li><a href="index.html">Home</a></li>
                     <li><a href="about.html">About Us</a></li>
@@ -55,7 +65,7 @@
         <!-- 2. TWO-COLUMN: MAP + FORM -->
         <div class="container contact-two-column">
             <!-- Map Column -->
-            <div class="contact-map">
+            <div class="contact-map fade-in">
                 <h2>Find Us Here</h2>
                 <iframe
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3848.428284769711!2d35.359223475119926!3d-15.298942785274432!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x18d91a3921bf6131%3A0x22ef3024658c64fc!2sDomasi%20Mission%20%5BPrivate%5D%20Secondary%20School!5e0!3m2!1sen!2smw!4v1782386093013!5m2!1sen!2smw"
@@ -66,7 +76,7 @@
             </div>
 
             <!-- Form Column -->
-            <div class="contact-form-container">
+            <div class="contact-form-container fade-in">
                 <h2>Send Us a Message</h2>
                 <form action="#" method="post" class="contact-form">
                     <label for="name">Your Full Name:</label>
@@ -98,11 +108,6 @@
                     <label for="message">Your Message:</label>
                     <textarea id="message" name="message" rows="5" placeholder="Write your message here..." required></textarea>
 
-                    <label class="checkbox-label">
-                        <input type="checkbox" name="newsletter" value="subscribe" />
-                        Please subscribe me to the monthly school newsletter
-                    </label>
-
                     <button type="submit" class="btn btn-primary submit-btn">
                         Send Message <i class="fas fa-arrow-right"></i>
                     </button>
@@ -110,11 +115,11 @@
             </div>
         </div>
 
-        <!-- 3. MEET OUR TEAM -->
-        <section class="team-section">
+        <!-- 3. MEET OUR ADMINISTRATION (Squeezed into one line) -->
+        <section class="team-section fade-in">
             <div class="container">
                 <h2>Meet Our Administration</h2>
-                <div class="staff">
+                <div class="staff staff-compact">
                     <figure>
                         <img src="images/mathew.jpg" alt="Mr. Milanzi - Headmaster" />
                         <figcaption><strong>Mr. Milanzi</strong><br />Headmaster</figcaption>
@@ -125,16 +130,77 @@
                     </figure>
                     <figure>
                         <img src="images/avatar-placeholder.png" alt="Mr. Chiposi - HOD-Sciences" />
-                        <figcaption><strong>Mr. Chiposi</strong><br />Head of Department - Sciences</figcaption>
+                        <figcaption><strong>Mr. Chiposi</strong><br />HOD Sciences</figcaption>
                     </figure>
                     <figure>
                         <img src="images/avatar-placeholder.png" alt="Mr. Chilundu - HOD-Humanities" />
-                        <figcaption><strong>Mr. Chilundu</strong><br />Head of Department - Humanities</figcaption>
+                        <figcaption><strong>Mr. Chilundu</strong><br />HOD Humanities</figcaption>
                     </figure>
                     <figure>
                         <img src="images/avatar-placeholder.png" alt="Mr. Hara" />
-                        <figcaption><strong>Mr. Hara</strong><br />Head of Department - Languages</figcaption>
+                        <figcaption><strong>Mr. Hara</strong><br />HOD Languages</figcaption>
                     </figure>
+                    <figure>
+                        <img src="images/avatar-placeholder.png" alt="Chaplain" />
+                        <figcaption><strong>Rev. [Chaplain]</strong><br />Chaplain</figcaption>
+                    </figure>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. STAFF BY DEPARTMENT (No Finance) -->
+        <section class="staff-departments fade-in">
+            <div class="container">
+                <h2>Our Teaching Staff</h2>
+                <div class="departments-grid">
+
+
+                    <!-- Languages Department -->
+                    <div class="dept-card">
+                        <div class="dept-icon"><i class="fas fa-language"></i></div>
+                        <h3>Languages Department</h3>
+                        <ul class="staff-list">
+                            <li><strong>Mr. Hara</strong> <span class="dept-role">(HOD)</span> Chichewa</li>
+                            <li><strong>Mr. Kalinde</strong> English</li>
+                            <li><strong>Mrs. Khoswe</strong> English</li>
+                            <li><strong>Mrs. Chakhaza</strong> Chichewa</li>
+                            <li><strong>Miss Lungu</strong> English</li>
+                        </ul>
+                    </div>
+
+                    <!-- Humanities Department -->
+                    <div class="dept-card">
+                        <div class="dept-icon"><i class="fas fa-landmark"></i></div>
+                        <h3>Humanities Department</h3>
+                        <ul class="staff-list">
+                            <li><strong>Mr. Chilundu</strong> <span class="dept-role">(HOD)</span> History</li>
+                            <li><strong>Mr. Ng'oma</strong> Geography</li>
+                            <li><strong>Mr. Kudzingo</strong> Bible Knowledge</li>
+                            <li><strong>Mrs. Dolozi</strong> Social Studies &amp; Business Studies</li>
+                            <li><strong>Miss Makolija</strong> Social Studies</li>
+                            <li><strong>Mr. Matenje</strong> Geography &amp; Social Studies</li>
+                            <li><strong>Mr. Mandanda</strong> Business Studies</li>
+                        </ul>
+                    </div>
+
+                                        <!-- Science Department -->
+                    <div class="dept-card">
+                        <div class="dept-icon"><i class="fas fa-flask"></i></div>
+                        <h3>Science Department</h3>
+                        <ul class="staff-list">
+                            <li><strong>Mr. Chiposi</strong> <span class="dept-role">(HOD)</span> Chemistry &amp; Physics</li>
+                            <li><strong>Mr. Namponya</strong> Chemistry &amp; Physics</li>
+                            <li><strong>Mr. M. Banda</strong> Mathematics &amp; Biology</li>
+                            <li><strong>Mr. Kwangu</strong> Physics &amp; Mathematics</li>
+                            <li><strong>Mr. Reppo</strong> Physics &amp; Mathematics</li>
+                            <li><strong>Mr. Gambatulah</strong> Biology &amp; Mathematics</li>
+                            <li><strong>Mr. Sisya</strong> Chemistry &amp; Mathematics</li>
+                            <li><strong>Mr. Jamali</strong> Agriculture</li>
+                            <li><strong>Mr. Matola</strong> Agriculture &amp; Chemistry</li>
+                            <li><strong>Mr. Nanthuru</strong> Biology &amp; Agriculture</li>
+                        </ul>
+                    </div>
+                    
                 </div>
             </div>
         </section>
@@ -182,5 +248,13 @@
             </p>
         </div>
     </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="back-to-top" onclick="scrollToTop()">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- ===== EXTERNAL JAVASCRIPT WITH DEFER ===== -->
+    <script src="scripts/domasi.js" defer></script>
 </body>
 </html>

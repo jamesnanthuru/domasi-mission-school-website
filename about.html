@@ -21,10 +21,20 @@
     <header>
         <div class="container header-flex">
             <div class="logo">
-                <img src="images/logo.png" alt="Domasi Mission Secondary School Logo" />
-                <span class="school-name">D.M.S.S</span>
+                <a href="index.html">
+                    <img src="images/logo.png" alt="Domasi Mission Secondary School Logo" />
+                    <span class="school-name">D.M.S.S</span>
+                </a>
             </div>
-            <nav>
+            <!-- Hamburger Menu Button -->
+            <button class="hamburger" id="hamburgerBtn" aria-label="Toggle navigation menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            <!-- Navigation -->
+            <nav class="nav-menu" id="navMenu">
+                <button class="close-menu" id="closeMenuBtn" aria-label="Close navigation menu">
+                    <i class="fas fa-times"></i>
+                </button>
                 <ul class="navigation">
                     <li><a href="index.html">Home</a></li>
                     <li><a href="about.html" class="active">About Us</a></li>
@@ -216,7 +226,7 @@
             </div>
         </section>
 
-        <!-- 7. MEET OUR ADMINISTRATION (Brief) -->
+        <!-- 7. MEET OUR ADMINISTRATION (Updated: Headmaster, Deputy, Chaplain) -->
         <section class="team-section about-team">
             <div class="container">
                 <h2>Meet Our Administration</h2>
@@ -230,16 +240,8 @@
                         <figcaption><strong>Mr. Kasote</strong><br />Deputy Head</figcaption>
                     </figure>
                     <figure>
-                        <img src="images/avatar-placeholder.png" alt="Mr. Chiposi - HOD-Sciences" />
-                        <figcaption><strong>Mr. Chiposi</strong><br />Head of Department - Sciences</figcaption>
-                    </figure>
-                    <figure>
-                        <img src="images/avatar-placeholder.png" alt="Mr. Chilundu - HOD-Humanities" />
-                        <figcaption><strong>Mr. Chilundu</strong><br />Head of Department - Humanities</figcaption>
-                    </figure>
-                    <figure>
-                        <img src="images/avatar-placeholder.png" alt="Mr. Hara" />
-                        <figcaption><strong>Mr. Hara</strong><br />Head of Department - Languages</figcaption>
+                        <img src="images/avatar-placeholder.png" alt="Chaplain" />
+                        <figcaption><strong>Rev. [Chaplain's Name]</strong><br />Chaplain</figcaption>
                     </figure>
                 </div>
                 <p class="team-cta">
@@ -291,5 +293,13 @@
             </p>
         </div>
     </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="back-to-top" onclick="scrollToTop()">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- ===== EXTERNAL JAVASCRIPT WITH DEFER ===== -->
+    <script src="scripts/domasi.js" defer></script>
 </body>
 </html>

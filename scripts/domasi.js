@@ -915,7 +915,8 @@ if (document.getElementById('uniTable')) {
 
         // 3. Selection Rate Gauge/Doughnut Chart
         const selectionRate = 81;
-        new Chart(document.getElementById('selectionChart'), {
+        const ctx = document.getElementById('selectionChart').getContext('2d');
+        new Chart(ctx, {
             type: 'doughnut',
             data: {
                 labels: ['Selected (81%)', 'Not Selected (19%)'],
@@ -953,16 +954,24 @@ if (document.getElementById('uniTable')) {
                 beforeDraw: function(chart) {
                     const { width, height, ctx } = chart;
                     ctx.save();
-                    const text = '81%';
-                    const fontSize = (height / 6);
-                    ctx.font = `bold ${fontSize}px 'Segoe UI', sans-serif`;
+                    
+                    // Calculate responsive font sizes
+                    const mainTextSize = Math.min(height / 5, width / 4);
+                    const subTextSize = mainTextSize / 2.8;
+                    
                     ctx.textAlign = 'center';
                     ctx.textBaseline = 'middle';
+                    
+                    // Main percentage
+                    ctx.font = `bold ${mainTextSize}px 'Segoe UI', sans-serif`;
                     ctx.fillStyle = '#0a1a3a';
-                    ctx.fillText(text, width / 2, height / 2 - 8);
-                    ctx.font = `${fontSize/2.5}px 'Segoe UI', sans-serif`;
+                    ctx.fillText('81%', width / 2, height / 2 - 5);
+                    
+                    // Sub text
+                    ctx.font = `${subTextSize}px 'Segoe UI', sans-serif`;
                     ctx.fillStyle = '#475569';
-                    ctx.fillText('Selection Rate', width / 2, height / 2 + fontSize/2);
+                    ctx.fillText('Selection Rate', width / 2, height / 2 + mainTextSize * 0.6);
+                    
                     ctx.restore();
                 }
             }]
@@ -974,5 +983,98 @@ if (document.getElementById('uniTable')) {
         // ========== EVENT LISTENERS ==========
         document.getElementById('searchInput').addEventListener('input', filterTable);
         document.getElementById('uniFilter').addEventListener('change', filterTable);
+    });
+}
+
+// ============================================================
+// 10. HAMBURGER MENU TOGGLE
+// ============================================================
+document.addEventListener('DOMContentLoaded', function() {
+    const hamburger = document.getElementById('hamburgerBtn');
+    const closeMenu = document.getElementById('closeMenuBtn');
+    const navMenu = document.getElementById('navMenu');
+    const body = document.body;
+
+    if (!hamburger || !navMenu) return;
+
+    // Function to open the menu
+    function openMenu() {
+        navMenu.classList.add('open');
+        body.classList.add('menu-open');
+        hamburger.innerHTML = '<i class="fas fa-times"></i>';
+    }
+
+    // Function to close the menu
+    function closeMenuFn() {
+        navMenu.classList.remove('open');
+        body.classList.remove('menu-open');
+        hamburger.innerHTML = '<i class="fas fa-bars"></i>';
+    }
+
+    // Toggle menu on hamburger click
+    hamburger.addEventListener('click', function(e) {
+        e.stopPropagation();
+        if (navMenu.classList.contains('open')) {
+            closeMenuFn();
+        } else {
+            openMenu();
+        }
+    });
+
+    // Close menu on close button click
+    if (closeMenu) {
+        closeMenu.addEventListener('click', function(e) {
+            e.stopPropagation();
+            closeMenuFn();
+        });
+    }
+
+    // Close menu when clicking outside the menu
+    document.addEventListener('click', function(event) {
+        if (navMenu.classList.contains('open')) {
+            const isClickInsideMenu = navMenu.contains(event.target);
+            const isClickOnHamburger = hamburger.contains(event.target);
+            if (!isClickInsideMenu && !isClickOnHamburger) {
+                closeMenuFn();
+            }
+        }
+    });
+
+    // Close menu on ESC key
+    document.addEventListener('keydown', function(event) {
+        if (event.key === 'Escape' && navMenu.classList.contains('open')) {
+            closeMenuFn();
+        }
+    });
+
+    // Close menu when a navigation link is clicked (optional, good UX)
+    navMenu.querySelectorAll('.navigation a').forEach(link => {
+        link.addEventListener('click', function() {
+            if (window.innerWidth <= 768) {
+                closeMenuFn();
+            }
+        });
+    });
+
+    // Handle window resize – close menu if resizing to desktop
+    window.addEventListener('resize', function() {
+        if (window.innerWidth > 768 && navMenu.classList.contains('open')) {
+            closeMenuFn();
+        }
+    });
+});
+
+// ============================================================
+// 11. STICKY HEADER SHRINK EFFECT
+// ============================================================
+const header = document.querySelector('header');
+
+if (header) {
+    window.addEventListener('scroll', function() {
+        if (window.scrollY > 50) {
+            header.classList.add('shrink');
+        } else {
+            header.classList.remove('shrink');
+        }
     });
 }
