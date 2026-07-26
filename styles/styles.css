@@ -520,6 +520,21 @@ header.shrink .school-name {
     font-size: 0.95rem;
 }
 
+/* ===== NEWS CAROUSEL LINK STYLING ===== */
+.news-slide a {
+    color: #f4a261;          /* Gold color */
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    transition: all 0.3s ease;
+}
+
+.news-slide a:hover {
+    color: #e9c46a;          /* Lighter gold on hover */
+    text-decoration: none;
+    text-shadow: 0 0 10px rgba(244, 162, 97, 0.3);
+}
+
 /* ===== QUICK LINKS ===== */
 .quick-links {
     padding: 60px 0;
@@ -2256,6 +2271,7 @@ html {
 .back-to-top i {
     font-size: 1.3rem;
 }
+
 
 /* ===== FOOTER LINK (LinkedIn) ===== */
 .footer-link {
