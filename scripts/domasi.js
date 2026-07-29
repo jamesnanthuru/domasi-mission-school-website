@@ -985,7 +985,6 @@ if (document.getElementById('uniTable')) {
         document.getElementById('uniFilter').addEventListener('change', filterTable);
     });
 }
-
 // ============================================================
 // 10. HAMBURGER MENU TOGGLE
 // ============================================================
@@ -1000,15 +999,15 @@ document.addEventListener('DOMContentLoaded', function() {
     // Function to open the menu
     function openMenu() {
         navMenu.classList.add('open');
-        body.classList.add('menu-open');
-        hamburger.innerHTML = '<i class="fas fa-times"></i>';
+        body.classList.add('menu-open');  // This hides the hamburger
+        body.classList.add('menu-visible'); // Additional class for styling
     }
 
     // Function to close the menu
     function closeMenuFn() {
         navMenu.classList.remove('open');
         body.classList.remove('menu-open');
-        hamburger.innerHTML = '<i class="fas fa-bars"></i>';
+        body.classList.remove('menu-visible');
     }
 
     // Toggle menu on hamburger click
@@ -1047,7 +1046,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Close menu when a navigation link is clicked (optional, good UX)
+    // Close menu when a navigation link is clicked
     navMenu.querySelectorAll('.navigation a').forEach(link => {
         link.addEventListener('click', function() {
             if (window.innerWidth <= 768) {

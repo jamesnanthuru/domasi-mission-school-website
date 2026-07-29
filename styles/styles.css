@@ -154,8 +154,29 @@ header.shrink .school-name {
         display: block;
     }
 
+    /* Hide hamburger when menu is open (using body class) */
+    body.menu-open .hamburger {
+        display: none !important;
+    }
+
     .close-menu {
         display: block;
+        background: none;
+        border: none;
+        color: #ffffff;
+        font-size: 2rem;
+        cursor: pointer;
+        padding: 10px 20px;
+        transition: all 0.3s ease;
+        position: absolute;
+        top: 15px;
+        right: 20px;
+        z-index: 1002;
+    }
+
+    .close-menu:hover {
+        color: #f4a261;
+        transform: rotate(90deg);
     }
 
     .nav-menu {
@@ -295,6 +316,11 @@ header.shrink .school-name {
 
     .hamburger {
         font-size: 1.5rem;
+    }
+
+    /* Ensure hamburger is also hidden on very small screens when menu is open */
+    body.menu-open .hamburger {
+        display: none !important;
     }
 }
 
@@ -2671,4 +2697,3 @@ html {
     background: transparent; /* Remove solid background to show carousel background */
 }
 
-/* Keep the rest of your carousel styles unchanged */
