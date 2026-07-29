@@ -2544,3 +2544,131 @@ html {
     }
 }
 
+/* ===== HERO WITH BACKGROUND IMAGE ===== */
+.hero {
+    position: relative;
+    background: linear-gradient(135deg, #0a1a3a 0%, #1a3a6a 100%);
+    color: #fff;
+    padding: 100px 0 80px;
+    text-align: center;
+    overflow: hidden;
+}
+
+/* Background image with low opacity */
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('../images/library.jpeg'); /* Path goes up one level to root */
+    background-size: cover;
+    background-position: center;
+    opacity: 0.25;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+}
+
+/* Keep the wave shape */
+.hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 80px;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cpath d='M0,0 C300,80 900,80 1200,0 L1200,120 L0,120Z' fill='%23ffffff'/%3E%3C/svg%3E") no-repeat bottom;
+    background-size: 100% 100%;
+    z-index: 1;
+}
+
+/* ===== NEWS SECTION WITH HERO-STYLE BLUE EFFECT ===== */
+.news {
+    position: relative;
+    background: linear-gradient(135deg, #0a1a3a 0%, #1a3a6a 100%); /* Same gradient as hero */
+    color: #ffffff; /* White text for better contrast on dark background */
+    padding: 60px 0;
+    overflow: hidden;
+}
+
+/* Background image with low opacity (same effect as hero) */
+.news::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('../images/domasi.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.25; /* Match hero opacity (was 0.25 in hero) */
+    z-index: 0;
+    pointer-events: none;
+}
+
+.news .container {
+    position: relative;
+    z-index: 1;
+}
+
+/* Make the heading white to match hero style */
+.news h2 {
+    color: #ffffff;
+    text-align: center;
+    font-size: 2.2rem;
+    margin-bottom: 40px;
+}
+
+/* ===== NEWS CAROUSEL WITH BACKGROUND IMAGE ===== */
+.news-carousel-container {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: 16px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+    background-color: #eef4f8; /* Light background color */
+}
+
+/* Background image behind the carousel */
+.news-carousel-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('../images/students.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.15;
+    z-index: 0;
+    pointer-events: none;
+    border-radius: 16px;
+}
+
+.news-carousel {
+    display: flex;
+    transition: transform 0.8s ease-in-out;
+    background: rgba(255, 255, 255, 0.50); /* Semi-transparent white to let background show through */
+    position: relative;
+    z-index: 1;
+}
+
+.news-slide {
+    min-width: 100%;
+    padding: 40px 50px;
+    text-align: center;
+    background: transparent; /* Remove solid background to show carousel background */
+}
+
+/* Keep the rest of your carousel styles unchanged */

@@ -970,7 +970,7 @@ if (document.getElementById('uniTable')) {
                     // Sub text
                     ctx.font = `${subTextSize}px 'Segoe UI', sans-serif`;
                     ctx.fillStyle = '#475569';
-                    ctx.fillText('Selection Rate', width / 2, height / 2 + mainTextSize * 0.6);
+                    ctx.fillText('Selected', width / 2, height / 2 + mainTextSize * 0.5);
                     
                     ctx.restore();
                 }
