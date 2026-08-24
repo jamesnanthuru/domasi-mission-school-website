@@ -962,17 +962,17 @@ if (document.getElementById('uniTable')) {
                     ctx.textAlign = 'center';
                     ctx.textBaseline = 'middle';
                     
-                    // Main percentage
-                    ctx.font = `bold ${mainTextSize}px 'Segoe UI', sans-serif`;
-                    ctx.fillStyle = '#0a1a3a';
-                    ctx.fillText('81%', width / 2, height / 2 - 5);
+                    // // Main percentage
+                    // ctx.font = `bold ${mainTextSize}px 'Segoe UI', sans-serif`;
+                    // ctx.fillStyle = '#0a1a3a';
+                    // ctx.fillText('81%', width / 2, height / 2 - 5);
                     
-                    // Sub text
-                    ctx.font = `${subTextSize}px 'Segoe UI', sans-serif`;
-                    ctx.fillStyle = '#475569';
-                    ctx.fillText('Selected', width / 2, height / 2 + mainTextSize * 0.5);
+                    // // Sub text
+                    // ctx.font = `${subTextSize}px 'Segoe UI', sans-serif`;
+                    // ctx.fillStyle = '#475569';
+                    // ctx.fillText('Selected', width / 2, height / 2 + mainTextSize * 0.5);
                     
-                    ctx.restore();
+                    // ctx.restore();
                 }
             }]
         });
